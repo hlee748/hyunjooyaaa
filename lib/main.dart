@@ -12,11 +12,40 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hyunjooyaaa',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Hyunjooyaaa'),
+        backgroundColor: const Color(0xffFCBD0E),
+        body: Stack(
+          children: [
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: buildHyunjooyaaTitle(),
+            ),
+
+            Positioned(
+              top: 0,
+              bottom: 0,
+              child: Align(
+                alignment: Alignment.center,
+                child: buildHyunjooyaaTitle(),
+              ),
+            ),
+          ],
         ),
-        body: const Center(
-          child: Text('Hello World'),
+      ),
+    );
+  }
+
+  Widget buildHyunjooyaaTitle() {
+    return Container(
+      color: Colors.pink,
+      child: const Padding(
+        padding: EdgeInsets.only(left: 16, bottom: 16),
+        child: Text(
+          'Hyunjooyaa',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 100,
+              fontFamily: 'RobotoMono-Regular'),
         ),
       ),
     );
