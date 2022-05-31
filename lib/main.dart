@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       child: const Padding(
         padding: EdgeInsets.only(left: 16, bottom: 16),
         child: Text(
-          'Hyunjooyaa',
+          'Julie',
           style: TextStyle(
               color: Colors.black,
               fontSize: 100,
