@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hyunjooyaaa!!!',
+      title: 'Hyunjooyaaa',
       home: Scaffold(
         backgroundColor: const Color(0xffFCBD0E),
         body: Stack(
@@ -19,15 +19,6 @@ class MyApp extends StatelessWidget {
               right: 0,
               bottom: 0,
               child: buildHyunjooyaaTitle(),
-            ),
-
-            Positioned(
-              top: 0,
-              bottom: 0,
-              child: Align(
-                alignment: Alignment.center,
-                child: buildHyunjooyaaTitle(),
-              ),
             ),
           ],
         ),
@@ -45,7 +36,7 @@ class MyApp extends StatelessWidget {
           style: TextStyle(
               color: Colors.black,
               fontSize: 100,
-              fontFamily: 'RobotoMono-Regular'),
+              fontFamily: 'RobotoMono-Medium'),
         ),
       ),
     );
