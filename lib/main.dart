@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
     return Container(
       color: Colors.pink,
       child: const Padding(
-        padding: EdgeInsets.only(left: 16, bottom: 16),
+        padding: EdgeInsets.only(left: 20, bottom: 20),
         child: Text(
           'Julie',
           style: TextStyle(
