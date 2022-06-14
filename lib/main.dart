@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hyunjooyaaa!!',
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('JULIE'),
+          backgroundColor: const Color(0xffFCBD0E),
+        ),
         backgroundColor: const Color(0xffFCBD0E),
         body: Stack(
           children: [
