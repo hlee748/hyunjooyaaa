@@ -12,11 +12,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hyunjooyaaa!!',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('JULIE'),
-          backgroundColor: const Color(0xffFCBD0E),
-        ),
         backgroundColor: const Color(0xffFCBD0E),
+          appBar: AppBar(
+          title: Text('JULIE'),
+          centerTitle: true,
+          elevation: 0.0,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: (){
+                print('menu button is clicked');
+              },
+            ),
+            ],
+          ),
+        ),
+
+        backgroundColor: const Color(0xffFCBD0E),
+
         body: Stack(
           children: [
             Positioned(
@@ -36,9 +49,9 @@ class MyApp extends StatelessWidget {
       child: const Padding(
         padding: EdgeInsets.only(left: 20, bottom: 20),
         child: Text(
-          'Julie',
+          'JULIE',
           style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 100,
               fontFamily: 'RobotoMono-Medium'),
         ),
