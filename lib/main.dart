@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
           title: Text('JULIE'),
           centerTitle: true,
           elevation: 0.0,
+          drawer: Drawer(),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.menu),
