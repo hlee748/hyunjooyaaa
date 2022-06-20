@@ -62,14 +62,14 @@ class MyApp extends StatelessWidget {
     return Container(
       color: Colors.pink,
       child: const Padding(
-        padding: EdgeInsets.only(left: 20, bottom: 20),
+        padding: EdgeInsets.all(20),
         child: Center (
           child: Text(
           'JULIE.',
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white,
-              fontSize: 100,
+              fontSize: 200,
               fontFamily: 'RobotoMono-Medium'),
           ),
         ),
