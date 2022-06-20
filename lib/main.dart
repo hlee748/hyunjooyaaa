@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
           TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return Scaffold(
         appBar: AppBar(
+          title: const Text('Hyunjooyaaa'),
           backgroundColor: Colors.yellow,
             actions: <Widget>[
                 TextButton(
@@ -62,12 +63,15 @@ class MyApp extends StatelessWidget {
       color: Colors.pink,
       child: const Padding(
         padding: EdgeInsets.only(left: 20, bottom: 20),
-        child: Text(
-          'JULIE',
+        child: Center (
+          child: Text(
+          'JULIE.',
+          textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white,
               fontSize: 100,
               fontFamily: 'RobotoMono-Medium'),
+          ),
         ),
       ),
     );
