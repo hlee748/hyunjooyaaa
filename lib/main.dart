@@ -5,44 +5,57 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
+
+  static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hyunjooyaaa!!',
-      home: Scaffold(
-        backgroundColor: const Color(0xffFCBD0E),
-          appBar: AppBar(
-          title: Text('JULIE'),
-          centerTitle: true,
-          elevation: 0.0,
-          drawer: Drawer(),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: (){
-                print('menu button is clicked');
-              },
-            ),
-            ],
-          ),
-        ),
-
-        backgroundColor: const Color(0xffFCBD0E),
-
-        body: Stack(
-          children: [
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: buildHyunjooyaaTitle(),
-            ),
-          ],
-        ),
-      ),
+    return const MaterialApp(
+      title: _title,
+      home: MyStatelessWidget(),
     );
   }
+}
+
+  class MyStatelessWidget extends StatelessWidget {
+  const MyStatelessWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style =
+          TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.yellow,
+            actions: <Widget>[
+                TextButton(
+                  style: style,
+                  onPressed: () {},
+                  child: const Text('ME'),
+                ),
+                TextButton(
+                  style: style,
+                  onPressed: () {},
+                  child: const Text('WORKS'),
+                )
+            ],
+        ),
+      body: Stack(
+        children: [
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: buildHyunjooyaaTitle(),
+          ),
+        ],
+      ),
+  );
+  }
+  }
+
+
+
 
   Widget buildHyunjooyaaTitle() {
     return Container(
@@ -59,4 +72,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
+
