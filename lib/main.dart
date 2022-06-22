@@ -44,9 +44,8 @@ class MyApp extends StatelessWidget {
         ),
       body: Stack(
         children: [
-          Positioned(
-            right: 0,
-            bottom: 0,
+          Align(
+            alignment: Alignment.topCenter,
             child: buildHyunjooyaaTitle(),
           ),
         ],
@@ -60,19 +59,18 @@ class MyApp extends StatelessWidget {
 
   Widget buildHyunjooyaaTitle() {
     return Container(
-      color: Colors.pink,
-      child: const Padding(
-        padding: EdgeInsets.all(20),
-        child: Center (
-          child: Text(
+      color: Colors.yellow,
+      child: const Center(
+
+      child: Text(
           'JULIE.',
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.w800,
               fontSize: 200,
               fontFamily: 'RobotoMono-Medium'),
           ),
-        ),
       ),
     );
   }
