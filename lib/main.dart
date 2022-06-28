@@ -27,18 +27,37 @@ class MyApp extends StatelessWidget {
           TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Hyunjooyaaa'),
+          title: const Text('Hyunjooyaaa',
+          style: TextStyle(
+            fontSize: 40,
+          ),),
           backgroundColor: Colors.yellow,
             actions: <Widget>[
                 TextButton(
                   style: style,
-                  onPressed: () {},
-                  child: const Text('ME'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MeRoute()),
+                    );
+                  },
+                  child: const Text('ME',
+                  style: TextStyle(
+                    fontSize: 20
+                  ),),
                 ),
                 TextButton(
                   style: style,
-                  onPressed: () {},
-                  child: const Text('WORKS'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const WorkRoute()),
+                    );
+                  },
+                  child: const Text('WORKS',
+                  style: TextStyle(
+                    fontSize: 20
+                  ),),
                 )
             ],
         ),
@@ -56,7 +75,6 @@ class MyApp extends StatelessWidget {
 
 
 
-
   Widget buildHyunjooyaaTitle() {
     return Container(
       color: Colors.yellow,
@@ -67,7 +85,7 @@ class MyApp extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Colors.white,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w900,
               fontSize: 200,
               fontFamily: 'RobotoMono-Medium'),
           ),
@@ -75,3 +93,44 @@ class MyApp extends StatelessWidget {
     );
   }
 
+class WorkRoute extends StatelessWidget {
+  const WorkRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("WORK"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+class MeRoute extends StatelessWidget {
+  const MeRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("ME"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
