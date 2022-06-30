@@ -107,7 +107,7 @@ class WorkRoute extends StatelessWidget {
           onPressed: (){
             Navigator.pop(context);
           },
-          child: const Text('Go back!'),
+          child: const Text('back'),
         ),
       ),
     );
@@ -128,7 +128,7 @@ class MeRoute extends StatelessWidget {
           onPressed: (){
             Navigator.pop(context);
           },
-          child: const Text('Go back!'),
+          child: const Text('back'),
         ),
       ),
     );
