@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const MeRoute()),
                     );
                   },
-                  child: const Text('ME',
+                  child: const Text("It's ME",
                   style: TextStyle(
                     fontSize: 20
                   ),),
@@ -121,7 +121,7 @@ class MeRoute extends StatelessWidget {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ME"),
+        title: const Text("It's ME"),
       ),
       body: Center(
         child: RaisedButton(
