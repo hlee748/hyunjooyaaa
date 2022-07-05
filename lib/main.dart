@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,11 @@ class MyApp extends StatelessWidget {
 
   class MyStatelessWidget extends StatelessWidget {
   const MyStatelessWidget({Key? key}) : super(key: key);
+
+  get controller => null;
+  Position _currentPosition;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -67,11 +73,36 @@ class MyApp extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: buildHyunjooyaaTitle(),
           ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              if (_currentPosition != null) Text(
+                "LAT: ${_currentPosition.latitude}, LNG: ${_currentPosition.longitude}"
+              ),
+              FlatButton(onPressed: (
+              {_getCurrentPosition()}
+              ), child: Text("Get location"))
+            ],
+          )
         ],
       ),
   );
   }
   }
+
+_getCurrentPosition() {
+  Geolocator
+      .getCurrentPosition(desiredAccuracy: LocationAccuracy.best, forceAndroidLocationManager: true)
+      .then((Position position) {
+    setState(() {
+      _currentPosition = position;
+    });
+  }).catchError((e) {
+    print(e);
+  });
+}
+
+
 
 
 
