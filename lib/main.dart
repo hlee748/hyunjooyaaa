@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,31 +75,12 @@ class MyApp extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: buildHyunjooyaaTitle(),
           ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: TextButton(
-              onPressed: (){
-                print(getCurrentLocation());
-              },
-              child: const Text("Button"),
-            ),
-          )
         ],
 
       ),
     );
     }
   }
-
-Future<Position> getCurrentLocation() async {
-  Position position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high);
-      print(position.longitude);
-      print(position.latitude);
-  return position;
-}
-
-
 
 
   Widget buildHyunjooyaaTitle() {
@@ -122,29 +105,57 @@ class WorkRoute extends StatelessWidget {
   const WorkRoute({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("WORK"),
         backgroundColor: Colors.yellow,
       ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: (){
-            Navigator.pop(context);
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextButton(
+            onPressed: (){
+             _timer = Timer.periodic(const Duration(seconds: 1), (timer){
+              _timerCount++;
+              print(_timer);
+              });
+            }, child: const Text("start"),
+            ),
+          TextButton(onPressed: (){
+              _timer?.cancel();
+          }, child: const Text("stop"),
+          ),
+          TextButton(
+          onPressed: () {
+            print(getCurrentLocation());
           },
-          child: const Text('back'),
+          child: const Text("Button"),
         ),
+        ]
       ),
     );
   }
 }
 
+Timer? _timer;
+int _timerCount = 0;
+
+Future<Position> getCurrentLocation() async {
+  Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high);
+  print(position.longitude);
+  print(position.latitude);
+  return position;
+}
+
+
 class MeRoute extends StatelessWidget {
   const MeRoute({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("It's Me"),
@@ -152,7 +163,7 @@ class MeRoute extends StatelessWidget {
       ),
       body: Center(
         child: RaisedButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
           child: const Text('back'),
