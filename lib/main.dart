@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   const MyStatelessWidget({Key? key}) : super(key: key);
 
   get controller => null;
-  Position _currentPosition;
+
 
 
 
@@ -73,35 +73,29 @@ class MyApp extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: buildHyunjooyaaTitle(),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              if (_currentPosition != null) Text(
-                "LAT: ${_currentPosition.latitude}, LNG: ${_currentPosition.longitude}"
-              ),
-              FlatButton(onPressed: (
-              {_getCurrentPosition()}
-              ), child: Text("Get location"))
-            ],
+          Align(
+            alignment: Alignment.topCenter,
+            child: TextButton(
+              onPressed: (){
+                print(getCurrentLocation());
+              },
+              child: const Text("Button"),
+            ),
           )
         ],
+
       ),
-  );
-  }
+    );
+    }
   }
 
-_getCurrentPosition() {
-  Geolocator
-      .getCurrentPosition(desiredAccuracy: LocationAccuracy.best, forceAndroidLocationManager: true)
-      .then((Position position) {
-    setState(() {
-      _currentPosition = position;
-    });
-  }).catchError((e) {
-    print(e);
-  });
+Future<Position> getCurrentLocation() async {
+  Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high);
+      print(position.longitude);
+      print(position.latitude);
+  return position;
 }
-
 
 
 
